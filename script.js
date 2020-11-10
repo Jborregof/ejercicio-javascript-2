@@ -11,5 +11,11 @@
 window.addEventListener("load", onLoad);
 
 function onLoad() {
-  console.log("hi");
+  //Buscamos el elemento cuya clase es selected. De este partiremos el resto del ejercicio
+  const spanIni = document.querySelector(".selected");
+
+  //
+  var anterior = spanIni.parentNode.previousSibling.previousSibling;
+  
+  console.log(anterior);
 }
