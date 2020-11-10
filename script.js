@@ -15,20 +15,33 @@ function onLoad() {
   const spanIni = document.querySelector(".selected");
 
   //Mediante el span anterior, daremos dos pasos atras para llegar al nodo ul y cogeremos una lista de sus hijos. luego recorreremos esa lista (la cual serán los li) y le insertamos el atributo class=element-n
-  const lista = spanIni.parentNode.parentNode.children;
+  var lista = spanIni.parentNode.parentNode.children;
   for (n = 0; n < lista.length; n++) {
-    lista[n].setAttribute("class", "element-" + (n + 1));
+    //dos formas de añadir la clase
+    lista[n].firstChild.classList.add("element-" + (n + 1));
+    //lista[n].firstChild.setAttribute("class", "element-" + (n + 1));
   }
 
   //Uso del querySelectorAll para obtener solo los elementos li pares
-  var lista1 = document.getElementById("list1");
+  var ul1 = document.getElementById("list1");
+  //Selecciono todos los li hijos inmediatos del id list1 cuya posicion sea par
   const evenNodes = document.querySelectorAll("#list1>li:nth-of-type(even)");
+  // Recorremos esa lista y borramos dichos nodos
   for (n = 0; n < evenNodes.length; n++) {
-    lista1.removeChild(evenNodes[n]);
+    ul1.removeChild(evenNodes[n]);
   }
 
-  //Copiamos la lista1 en lista2
-  for (i = 0; i < lista1.length; i++) {
-    console.log(lista1[n]);
+  //Copiamos la ul1 en lista2
+  var ul2 = document.getElementById("list2");
+  //Recorremos la lista1
+  for (i = 0; i < lista.length; i++) {
+    //Creamos el li que estará en la posicion i
+    let liI = document.createElement("li");
+    //Le ponemos de innerHTML el mismo que el li correspondiente de la lista1 pero cambiando span por button
+    liI.innerHTML = lista[i].innerHTML.replaceAll("span", "button");
+    //lo insertamos dentro de ul2 despues de su ultimo hijo
+    ul2.insertAdjacentElement("beforeend", liI);
   }
+  //Añadimos el atributo disabled
+  ul2.lastElementChild.firstElementChild.setAttribute("disabled", "");
 }
