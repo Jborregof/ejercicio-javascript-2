@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  font-family: Lato;
+}
+
+h1 {
+  padding-left: 15px;
+}
+h2 {
+  padding-left: 22px;
+}
+
+.selected {
+  color: gold;
+  background-color: black;
+}
+
+.element-1 {
+  color: greenyellow;
+  background-color: black;
+}
+
+.element-2 {
+  color: dodgerblue;
+  background-color: black;
+}
+
+.element-3 {
+  color: white;
+  background-color: black;
+}
+
+.element-4 {
+  color: darkorange;
+  background-color: black;
+}
+
+.element-5 {
+  color: red;
+  background-color: black;
+}
