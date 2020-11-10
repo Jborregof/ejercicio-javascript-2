@@ -14,8 +14,21 @@ function onLoad() {
   //Buscamos el elemento cuya clase es selected. De este partiremos el resto del ejercicio
   const spanIni = document.querySelector(".selected");
 
-  //
-  var anterior = spanIni.parentNode.previousSibling.previousSibling;
-  
-  console.log(anterior);
+  //Mediante el span anterior, daremos dos pasos atras para llegar al nodo ul y cogeremos una lista de sus hijos. luego recorreremos esa lista (la cual serán los li) y le insertamos el atributo class=element-n
+  const lista = spanIni.parentNode.parentNode.children;
+  for (n = 0; n < lista.length; n++) {
+    lista[n].setAttribute("class", "element-" + (n + 1));
+  }
+
+  //Uso del querySelectorAll para obtener solo los elementos li pares
+  var lista1 = document.getElementById("list1");
+  const evenNodes = document.querySelectorAll("#list1>li:nth-of-type(even)");
+  for (n = 0; n < evenNodes.length; n++) {
+    lista1.removeChild(evenNodes[n]);
+  }
+
+  //Copiamos la lista1 en lista2
+  for (i = 0; i < lista1.length; i++) {
+    console.log(lista1[n]);
+  }
 }
